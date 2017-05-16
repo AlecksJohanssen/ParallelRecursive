@@ -10,14 +10,12 @@ async function ls() {
   const fileNames = await promise
   for (const item of fileNames) {
     const filePath = path.join(__dirname, item)
-    fs.stat(filePath, function (error, stats) {
+    fs.stat(filePath, (error, stats) => {
       if (error) {
         throw error
       }
       if (stats.isDirectory()) {
-        for (const item of stats) {
-
-        }
+        process.stdout.write('blyat')
       }
     });
   }
